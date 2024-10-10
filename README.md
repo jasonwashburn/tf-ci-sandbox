@@ -22,7 +22,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [random_pet.pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
+| [random_pet.pet_one](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
+| [random_pet.pet_two](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
 
 ## Inputs
 
