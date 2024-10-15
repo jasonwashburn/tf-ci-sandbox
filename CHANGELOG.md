@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/jasonwashburn/tf-ci-sandbox/compare/v0.0.1...v0.0.2) (2024-10-15)
+
+
+### Miscellaneous Chores
+
+* **deps:** update pre-commit hook renovatebot/pre-commit-hooks to v38.124.1 ([#9](https://github.com/jasonwashburn/tf-ci-sandbox/issues/9)) ([ddaa39a](https://github.com/jasonwashburn/tf-ci-sandbox/commit/ddaa39a4f724f8f67908737ac5c3fcc32051700b))
+
 ## [0.0.1](https://github.com/jasonwashburn/tf-ci-sandbox/compare/v0.0.0...v0.0.1) (2024-10-10)
 
 
