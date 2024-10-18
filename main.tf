@@ -1,5 +1,5 @@
 terraform {
-  required_version = "1.8.3"
+  required_version = ">=1.8"
 }
 resource "random_pet" "pet_one" {
   prefix = "one_"

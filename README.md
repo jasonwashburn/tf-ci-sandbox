@@ -5,7 +5,7 @@ Sandbox repo for playing around with terraform/ci related things
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.8.3 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.8 |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.1.0 |
 
