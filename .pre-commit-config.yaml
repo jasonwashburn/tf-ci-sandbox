@@ -55,3 +55,4 @@ repos:
     rev: 38.124.1
     hooks:
       - id: renovate-config-validator
+        language_version: "lts"

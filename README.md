@@ -5,6 +5,7 @@ Sandbox repo for playing around with terraform/ci related things
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.8 |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.1.0 |
 
@@ -31,5 +32,7 @@ No inputs.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_hello_world"></a> [hello\_world](#output\_hello\_world) | n/a |
 <!-- END OF PRE-COMMIT-OPENTOFU DOCS HOOK -->
