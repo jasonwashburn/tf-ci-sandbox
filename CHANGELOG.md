@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.3](https://github.com/jasonwashburn/tf-ci-sandbox/compare/v0.0.2...v0.0.3) (2024-10-23)
+
+
+### Miscellaneous Chores
+
+* **deps:** update all dependencies ([#12](https://github.com/jasonwashburn/tf-ci-sandbox/issues/12)) ([135eaf3](https://github.com/jasonwashburn/tf-ci-sandbox/commit/135eaf3208756a29669fd8dab271f052ea71b866))
+
+
+### Continuous Integration
+
+* Add terratest workflow ([#11](https://github.com/jasonwashburn/tf-ci-sandbox/issues/11)) ([9fabf52](https://github.com/jasonwashburn/tf-ci-sandbox/commit/9fabf52de730108cfb01d07b97cac3e33057f0f6))
+
 ## [0.0.2](https://github.com/jasonwashburn/tf-ci-sandbox/compare/v0.0.1...v0.0.2) (2024-10-15)
 
 
