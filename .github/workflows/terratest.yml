@@ -5,9 +5,10 @@ on:
   issue_comment:
     types: [created]
 
-# permissions:
-#   id-token: write
-#   contents: read
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
 
 jobs:
   terratest:
