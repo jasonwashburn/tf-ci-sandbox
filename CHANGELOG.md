@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.4](https://github.com/jasonwashburn/tf-ci-sandbox/compare/v0.0.3...v0.0.4) (2024-11-19)
+
+
+### Miscellaneous Chores
+
+* **deps:** update all dependencies ([#14](https://github.com/jasonwashburn/tf-ci-sandbox/issues/14)) ([ccada35](https://github.com/jasonwashburn/tf-ci-sandbox/commit/ccada3587a8a1ca2b1a61786cb76c126e25a17a7))
+* **deps:** update pre-commit hook renovatebot/pre-commit-hooks to v39.20.5 ([#22](https://github.com/jasonwashburn/tf-ci-sandbox/issues/22)) ([f98c220](https://github.com/jasonwashburn/tf-ci-sandbox/commit/f98c2208c502182a71bc947ecde106035efe795e))
+
+
+### Continuous Integration
+
+* Add manual triggering to terratest workflow ([#15](https://github.com/jasonwashburn/tf-ci-sandbox/issues/15)) ([753016b](https://github.com/jasonwashburn/tf-ci-sandbox/commit/753016bdc57c5f6de23de1c30250cb9142967e28))
+* Test workflow triggering ([#18](https://github.com/jasonwashburn/tf-ci-sandbox/issues/18)) ([f21de85](https://github.com/jasonwashburn/tf-ci-sandbox/commit/f21de8500d0471a3c5afe0009b5cd2d010389053))
+* Update permissions on terratest workflow ([59ec9d5](https://github.com/jasonwashburn/tf-ci-sandbox/commit/59ec9d52c0284ffe004ed4b56235cf37d795abc8))
+* Update renovate scheduling ([#21](https://github.com/jasonwashburn/tf-ci-sandbox/issues/21)) ([4228376](https://github.com/jasonwashburn/tf-ci-sandbox/commit/4228376f222010722a522bfc3657ffe105b02324))
+
 ## [0.0.3](https://github.com/jasonwashburn/tf-ci-sandbox/compare/v0.0.2...v0.0.3) (2024-10-23)
 
 
