@@ -3,8 +3,6 @@ name: pre-commit
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
 
 jobs:
   pre-commit:
@@ -17,7 +15,7 @@ jobs:
       # Checkout the code
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Setup Go
@@ -76,21 +74,15 @@ jobs:
         with:
           extra_args: --all-files --show-diff-on-failure
 
-      - name: Commit pre-commit changes if Renovate PR
+      # Commit pre-commit changes if Renovate PR
+      - uses: planetscale/ghcommit-action@v0.1.6
         if: |
           contains(github.head_ref, 'renovate') &&
           steps.pre-commit.outcome == 'failure' &&
           github.event_name == 'pull_request'
+        with:
+          commit_message: "style: auto-fix pre-commit issues"
+          repo: ${{ github.repository }}
+          branch: ${{ github.head_ref || github.ref_name }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global gpg.format ssh
-          git config --global user.signingkey "$(git rev-parse --git-dir)/ssh-key"
-          git config --global commit.gpgsign true
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add -A
-            git commit -S -m "style: auto-fix pre-commit issues"
-            git push
-          fi
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
