@@ -89,6 +89,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+      - name: Output job results
+        run: |
+          echo "Is Renovate PR: ${{ contains(github.head_ref, 'renovate') }}"
+          echo "Pre-commit status: ${{ steps.pre-commit.outcome }}"
+
   call-terratest-workflow:
     needs: pre-commit
     permissions:
