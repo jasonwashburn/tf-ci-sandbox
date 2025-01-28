@@ -95,4 +95,4 @@ jobs:
       needs.pre-commit.outputs.is_renovate == 'true' &&
       (needs.pre-commit.outputs.pre_commit_status == 'success' ||
        needs.pre-commit.result == 'success')
-    uses: ./.github/workflows/terratest.yml@main
+    uses: ./.github/workflows/terratest.yml
