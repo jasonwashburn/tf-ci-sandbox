@@ -91,6 +91,9 @@ jobs:
 
   call-terratest-workflow:
     needs: pre-commit
+    permissions:
+      id-token: write
+      contents: read
     if: |
       needs.pre-commit.outputs.is_renovate == 'true' &&
       (needs.pre-commit.outputs.pre_commit_status == 'success' ||
