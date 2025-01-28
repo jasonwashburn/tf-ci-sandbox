@@ -13,8 +13,8 @@ jobs:
   terratest:
     if: |
       github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'workflow_call' ||
-      contains(github.event.head_commit.message, '/run-e2e')
+      contains(github.event.head_commit.message, '/run-e2e') ||
+      github.event.workflow_call != null
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
