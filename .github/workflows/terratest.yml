@@ -2,8 +2,7 @@ name: Terratest on AWS
 
 on:
   workflow_dispatch:
-  issue_comment:
-    types: [created]
+  pull_request:
 
 permissions:
   id-token: write
@@ -14,7 +13,8 @@ jobs:
   terratest:
     if: |
       github.event_name == 'workflow_dispatch' ||
-      (github.event.issue.pull_request && contains(github.event.comment.body, '/run-e2e'))
+      contains(github.event.head_commit.message, '/run-e2e') ||
+      contains(github.head_ref, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
