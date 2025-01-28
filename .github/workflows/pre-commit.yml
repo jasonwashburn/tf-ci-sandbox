@@ -12,7 +12,6 @@ jobs:
       contents: write
     outputs:
       is_renovate: ${{ contains(github.head_ref, 'renovate') }}
-      pre_commit_status: ${{ steps.pre-commit.outcome }}
     steps:
       # Checkout the code
       - uses: actions/checkout@v4
@@ -100,7 +99,5 @@ jobs:
       id-token: write
       contents: read
     if: |
-      needs.pre-commit.outputs.is_renovate == 'true' &&
-      (needs.pre-commit.outputs.pre_commit_status == 'success' ||
-       needs.pre-commit.result == 'success')
+      needs.pre-commit.outputs.is_renovate == 'true'
     uses: ./.github/workflows/terratest.yml
