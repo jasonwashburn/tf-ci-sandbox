@@ -31,7 +31,10 @@ jobs:
         with:
           cache: true # Caching is enabled by default
 
-      - name: Install dependencies
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+
+      - name: Install Go dependencies
         run: go mod tidy
         working-directory: "./test"
 
