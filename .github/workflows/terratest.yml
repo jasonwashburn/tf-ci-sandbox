@@ -2,7 +2,7 @@ name: Terratest on AWS
 
 on:
   workflow_dispatch:
-  pull_request:
+  push:
 
 permissions:
   id-token: write
