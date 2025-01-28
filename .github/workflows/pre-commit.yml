@@ -89,6 +89,6 @@ jobs:
           git config --global commit.gpgsign true
           if [[ -n "$(git status --porcelain)" ]]; then
             git add -A
-            git commit -m -S "style: auto-fix pre-commit issues"
+            git commit -S -m "style: auto-fix pre-commit issues"
             git push
           fi
