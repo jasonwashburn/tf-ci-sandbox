@@ -76,7 +76,7 @@ jobs:
           extra_args: --all-files --show-diff-on-failure
 
       # Commit pre-commit changes if Renovate PR
-      - uses: planetscale/ghcommit-action@v0.1.6
+      - uses: planetscale/ghcommit-action@v0.2.4
         if: |
           contains(github.head_ref, 'renovate') &&
           steps.pre-commit.outcome == 'failure' &&
