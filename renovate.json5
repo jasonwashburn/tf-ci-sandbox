@@ -53,6 +53,17 @@
   //     "extractVersionTemplate": "^v?(?<version>.*)$"
   //   }
   // ],
+  "regexManagers": [
+    {
+      "fileMatch": ["README\\.md$", "^docs/.*\\.md$"],
+      "matchStrings": [
+        "source\\s*=\\s*\"(?<depName>[^\"]*?)\"\\s*,?\\s*version\\s*=\\s*\"(?<currentValue>[^\"]*?)\"",
+        "(?<depName>[^\\s]*?)\\s+\\|\\s+(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "terraform-module",
+      "versioningTemplate": "hashicorp"
+    }
+  ],
   "packageRules": [
     // {
     //   "matchPackageNames": ["k8s.io/client-go"],
