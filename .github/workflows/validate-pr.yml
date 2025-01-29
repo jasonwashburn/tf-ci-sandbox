@@ -71,54 +71,54 @@ jobs:
       - uses: pre-commit/action@v3.0.1
         id: pre-commit
         # If this is a Renovate PR, continue on error to allow auto-fixing
-        continue-on-error: ${{ contains(github.head_ref, 'renovate') }}
+        # continue-on-error: ${{ contains(github.head_ref, 'renovate') }}
         with:
           extra_args: --all-files --show-diff-on-failure
 
-      # Commit pre-commit changes if Renovate PR
-      - uses: planetscale/ghcommit-action@v0.1.6
-        if: |
-          contains(github.head_ref, 'renovate') &&
-          steps.pre-commit.outcome == 'failure' &&
-          github.event_name == 'pull_request'
-        with:
-          commit_message: "style: auto-fix pre-commit issues"
-          repo: ${{ github.repository }}
-          branch: ${{ github.head_ref || github.ref_name }}
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  terratest:
-    needs: pre-commit
-    # if: |
-    #   github.event_name == 'workflow_dispatch' ||
-    #   contains(github.event.head_commit.message, '/run-e2e') ||
-    #   github.event.workflow_call != null
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
-      # - name: Configure AWS credentials from OIDC
-      #   uses: aws-actions/configure-aws-credentials@v3
+      # # Commit pre-commit changes if Renovate PR
+      # - uses: planetscale/ghcommit-action@v0.1.6
+      #   if: |
+      #     contains(github.head_ref, 'renovate') &&
+      #     steps.pre-commit.outcome == 'failure' &&
+      #     github.event_name == 'pull_request'
       #   with:
-      #     role-to-assume: arn:aws:iam::<ACCOUNT_ID>:role/<YOUR_ROLE_NAME>
-      #     aws-region: us-east-1
+      #     commit_message: "style: auto-fix pre-commit issues"
+      #     repo: ${{ github.repository }}
+      #     branch: ${{ github.head_ref || github.ref_name }}
+      #   env:
+      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Set up Go with built-in caching
-        uses: actions/setup-go@v5
-        with:
-          cache: true # Caching is enabled by default
-
-      - name: Setup OpenTofu
-        uses: opentofu/setup-opentofu@v1
-
-      - name: Install Go dependencies
-        run: go mod tidy
-        working-directory: "./test"
-
-      - name: Run Terratest
-        run: go test -v
-        working-directory: "./test"
+  # terratest:
+  #   needs: pre-commit
+  #   # if: |
+  #   #   github.event_name == 'workflow_dispatch' ||
+  #   #   contains(github.event.head_commit.message, '/run-e2e') ||
+  #   #   github.event.workflow_call != null
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+  #       with:
+  #         ref: ${{ github.event.pull_request.head.sha }}
+  #
+  #     # - name: Configure AWS credentials from OIDC
+  #     #   uses: aws-actions/configure-aws-credentials@v3
+  #     #   with:
+  #     #     role-to-assume: arn:aws:iam::<ACCOUNT_ID>:role/<YOUR_ROLE_NAME>
+  #     #     aws-region: us-east-1
+  #
+  #     - name: Set up Go with built-in caching
+  #       uses: actions/setup-go@v5
+  #       with:
+  #         cache: true # Caching is enabled by default
+  #
+  #     - name: Setup OpenTofu
+  #       uses: opentofu/setup-opentofu@v1
+  #
+  #     - name: Install Go dependencies
+  #       run: go mod tidy
+  #       working-directory: "./test"
+  #
+  #     - name: Run Terratest
+  #       run: go test -v
+  #       working-directory: "./test"

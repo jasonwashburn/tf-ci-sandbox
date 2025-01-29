@@ -57,7 +57,9 @@
     {
       "fileMatch": ["(^|/)README\\.md$"],
       "matchStrings": [
-        "\\| (?<depName>[^|]*?) \\| (?<currentValue>v\\d+\\.\\d+\\.\\d+) \\|"
+        "\\| (?<depName>[^|]+) \\| [>~]= (?<currentValue>\\d+\\.\\d+(?:\\.\\d+)?)",
+        "\\| (?<depName>[^|/]+\\/[^|]+) \\| (?<currentValue>\\d+\\.\\d+\\.\\d+|v\\d+\\.\\d+\\.\\d+)",
+        "\\| git::https://github\\.com/(?<depName>[^|]+) \\| (?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "terraform-module",
       "versioningTemplate": "hashicorp"
