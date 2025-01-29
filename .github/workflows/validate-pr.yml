@@ -1,4 +1,4 @@
-name: pre-commit
+name: Validate Pull Request
 
 on:
   pull_request:
@@ -88,15 +88,36 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Output job results
-        run: |
-          echo "Is Renovate PR: ${{ contains(github.head_ref, 'renovate') }}"
+  terratest:
+    # if: |
+    #   github.event_name == 'workflow_dispatch' ||
+    #   contains(github.event.head_commit.message, '/run-e2e') ||
+    #   github.event.workflow_call != null
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
-  call-terratest-workflow:
-    needs: pre-commit
-    permissions:
-      id-token: write
-      contents: read
-    if: |
-      needs.pre-commit.outputs.is_renovate == 'true'
-    uses: ./.github/workflows/terratest.yml
+      # - name: Configure AWS credentials from OIDC
+      #   uses: aws-actions/configure-aws-credentials@v3
+      #   with:
+      #     role-to-assume: arn:aws:iam::<ACCOUNT_ID>:role/<YOUR_ROLE_NAME>
+      #     aws-region: us-east-1
+
+      - name: Set up Go with built-in caching
+        uses: actions/setup-go@v5
+        with:
+          cache: true # Caching is enabled by default
+
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+
+      - name: Install Go dependencies
+        run: go mod tidy
+        working-directory: "./test"
+
+      - name: Run Terratest
+        run: go test -v
+        working-directory: "./test"
