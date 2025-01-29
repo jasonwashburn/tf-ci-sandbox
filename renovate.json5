@@ -55,7 +55,7 @@
   // ],
   "regexManagers": [
     {
-      "fileMatch": ["README\\.md$", "^docs/.*\\.md$"],
+      "fileMatch": ["README\\.md$"],
       "matchStrings": [
         "source\\s*=\\s*\"(?<depName>[^\"]*?)\"\\s*,?\\s*version\\s*=\\s*\"(?<currentValue>[^\"]*?)\"",
         "(?<depName>[^\\s]*?)\\s+\\|\\s+(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
