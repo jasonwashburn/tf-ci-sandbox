@@ -59,7 +59,8 @@
       "matchStrings": [
         "\\| <a name=\"requirement_(?<depName>[^\"]+)\"></a> \\[[^]]+\\]\\([^)]+\\) \\| (?<currentValue>\\d+\\.\\d+(?:\\.\\d+)?) \\|",
         "\\| <a name=\"provider_(?<depName>[^\"]+)\"></a> \\[[^]]+\\]\\([^)]+\\) \\| (?<currentValue>\\d+\\.\\d+(?:\\.\\d+)?) \\|",
-        "providers\\/(?<depName>[^/]+)\\/(?<currentValue>\\d+\\.\\d+\\.\\d+)\\/docs\\/resources"
+        "\\| <a name=\"module_[^\"]+\"></a> \\[[^]]+\\]\\([^)]+\\) \\| (?<depName>[^|]+) \\| (?<currentValue>v\\d+\\.\\d+\\.\\d+) \\|",
+        "\\/providers\\/[^/]+\\/(?<currentValue>\\d+\\.\\d+\\.\\d+)\\/"
       ],
       "datasourceTemplate": "terraform-provider",
       "versioningTemplate": "hashicorp"
