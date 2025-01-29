@@ -57,8 +57,7 @@
     {
       "fileMatch": ["README\\.md$"],
       "matchStrings": [
-        "source\\s*=\\s*\"(?<depName>[^\"]*?)\"\\s*,?\\s*version\\s*=\\s*\"(?<currentValue>[^\"]*?)\"",
-        "(?<depName>[^\\s]*?)\\s+\\|\\s+(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+        "\\| (?<depName>[^|]*?) \\| (?<currentValue>v\\d+\\.\\d+\\.\\d+) \\|"
       ],
       "datasourceTemplate": "terraform-module",
       "versioningTemplate": "hashicorp"
