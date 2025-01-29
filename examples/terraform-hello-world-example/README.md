@@ -15,7 +15,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_eks_label"></a> [eks\_label](#module\_eks\_label) | cloudposse/label/null | v0.22.0 |
+| <a name="module_eks_label"></a> [eks\_label](#module\_eks\_label) | cloudposse/label/null | v0.25.0 |
 
 ## Resources
 
