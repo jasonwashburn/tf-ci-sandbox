@@ -8,5 +8,5 @@ resource "random_pet" "pet_two" {
 }
 
 output "hello_world" {
-  value = "Hello, World!"
+  value = "Hello, World!?"
 }
