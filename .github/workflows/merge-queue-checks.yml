@@ -1,0 +1,30 @@
+on:
+  merge_group:
+    types: [checks_requested]
+
+jobs:
+  terratest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Intentional failure temporarily for testing
+      - name: Intentional failure
+        run: exit 1
+
+      - name: Set up Go with built-in caching
+        uses: actions/setup-go@v5
+        with:
+          cache: true # Caching is enabled by default
+
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+
+      - name: Install Go dependencies
+        run: go mod tidy
+        working-directory: "./test"
+
+      - name: Run Terratest
+        run: go test -v
+        working-directory: "./test"
