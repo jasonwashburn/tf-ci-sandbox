@@ -3,7 +3,7 @@ terraform {
 }
 module "eks_label" {
   source      = "cloudposse/label/null"
-  version     = "v0.22.0"
+  version     = "v0.25.0"
   namespace   = "uds"
   stage       = "dev"
   name        = "example"
